@@ -38,6 +38,8 @@ Ver codigo_completo.cpp
 * estos lo hacen cuando su suerte es parecida (+/- 2) y ninguno tiene cábala.
 */
 
+Ver codigo_completo.cpp, Cancha::esEmpate()
+
 /**
 * [4] indicá quien sería el ganador en cada caso:
 *

@@ -60,5 +60,27 @@ class SanJustoFC: public Equipo{
   * ==== / Ejercicio 2: Modelado de equipos =====
 */
 
+
+
+class Cancha {
+
+    public:
+
+        /**
+         * Descripción: Retorna true si ambos equipos empatan (diferencia suerte < 2 y ambos no tienen cabala). No modifica los parámetros
+         * Este es el Ejercicio [3]
+         */
+        bool esEmpate(Equipo& equipo_a, Equipo& equipo_b){
+            auto diferencia_suerte = abs(equipo_a.suerte() - equipo_b.suerte());
+
+            if ( diferencia_suerte <= 2 &&
+                !equipo_a.cabala() && !equipo_b.cabala() )
+                return true;
+
+            return false;
+        }
+};
+
+
 int main(int argc, char* argv[]){
 }
