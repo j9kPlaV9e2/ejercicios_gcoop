@@ -1,0 +1,51 @@
+/** usá el lenguaje que vos quieras, no es necesario que "compile".
+/** por favor escribí el código de las soluciones debajo de cada consigna :)
+/** la entrega debe incluir la creación de un repo git, puede ser en github u otra plataforma.
+
+[0] crea un repo git local y realiza un commit inicial con este archivo.
+
+[1] qué hace esta funcion? describila y cambia su nombre por uno que te parezca bien
+
+*/
+
+/**
+ * Descripción: ...
+ */
+function funcionLoca(local, visitante)
+{
+    let ganador = local;
+
+    if(visitante.suerte > 99 || !local.cabala)
+    {
+        ganador = visitante;
+    }
+    return ganador;
+}
+
+/**
+* [2] modelá a los equipos
+* Sacachispas que tiene 14 de suerte y no tiene cábala
+* Deportivo Morón que tiene 1 de suerte y tiene cábala
+* Carmen Sandiego que tiene 100 de suerte y no tiene cábala
+* San Justo FC que tiene 12 de suerte y no tiene cábala
+*/
+
+/**
+* [3] escribi la funcion esEmpate que dados dos equipos indica si empatan,
+* estos lo hacen cuando su suerte es parecida (+/- 2) y ninguno tiene cábala.
+*/
+
+/**
+* [4] indicá quien sería el ganador en cada caso:
+*
+* Local               Visitante
+* Deportivo Moron     San Justo FC
+* Carmen Sandiego     Sacachispas
+* Sacachispas         San Justo FC
+* */
+
+/**
+* [5] agregá una funcion que dados dos equipos haga que jueguen, esto es:
+* _ que sume los puntos por cada partido, teniendo en cuenta que si es empate ambos suman un punto, de lo contrario solo el ganador sumará 3 puntos
+* _ que se encargue de actualizar la cantidad de derrotas/victorias/empates de cada equipo
+*/
