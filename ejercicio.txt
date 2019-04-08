@@ -31,6 +31,8 @@ function ponderar_suerte(local, visitante)
 * San Justo FC que tiene 12 de suerte y no tiene cábala
 */
 
+Ver codigo_completo.cpp
+
 /**
 * [3] escribi la funcion esEmpate que dados dos equipos indica si empatan,
 * estos lo hacen cuando su suerte es parecida (+/- 2) y ninguno tiene cábala.
