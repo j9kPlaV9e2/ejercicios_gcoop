@@ -79,8 +79,59 @@ class Cancha {
 
             return false;
         }
+
+        /**
+         * Descripción: Devuelve el ganador del partido. Retorna el equipo local, salvo que:
+         *              el de visitante tenga 100 o más de suerte o falle (sea false) la cábala del equipo local.
+         *              creo que faltaba esto del ejercicio [1]
+         */
+        Equipo& ponderarSuerte(Equipo& local, Equipo& visitante) {
+            if (visitante.suerte() > 99 || !local.cabala() ) return visitante;
+            else return local;
+        }
+
+        /**
+         * Descripción: Presenta los equipos y da el resultado. Modifica variables, escribe en stdout
+         */
+        void jugar(Equipo& local, Equipo& visitante)
+        {
+            // Presento equipos
+            cout << "El equipo local " << local.nombre() <<
+                    " se enfrenta a " << visitante.nombre() << ". Mucha suerte a todos !!!" << endl;
+
+            // Si hay empate, ambos se llevan 1 punto
+            if ( esEmpate(local, visitante) ) {
+                cout << "\t[=] Es empate !" << endl;
+            }
+            else {
+                // El ganador se lleva 3 puntos
+                auto equipo_ganador = ponderarSuerte(local, visitante);
+                cout << "\t[+] Gana: " << equipo_ganador.nombre() << " !!!" << endl;
+            }
+        }
+
+
 };
 
 
 int main(int argc, char* argv[]){
+    /**
+    * [4] indicá quien sería el ganador en cada caso:
+    *
+    * Local               Visitante
+    * Deportivo Moron     San Justo FC
+    * Carmen Sandiego     Sacachispas
+    * Sacachispas         San Justo FC
+    * */    
+
+   DeportivoMoron deportivo_moron;
+   SanJustoFC     san_justo_fc;
+   CarmenSanDiego carmen_san_diego;
+   Sacachispas    sacachispas;
+
+   Cancha         cancha_fabulosa;
+
+   cancha_fabulosa.jugar(deportivo_moron,  san_justo_fc); // Gana Moron
+   cancha_fabulosa.jugar(carmen_san_diego, sacachispas);  // Gana Sacachispas, San Diego está flojo de cábala :c
+   cancha_fabulosa.jugar(sacachispas,      san_justo_fc); // Es empate
 }
