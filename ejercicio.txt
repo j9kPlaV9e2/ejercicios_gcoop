@@ -9,9 +9,10 @@
 */
 
 /**
- * Descripción: ...
+ * Descripción: Devuelve el ganador del partido. Retorna el equipo local, salvo que:
+ *              el de visitante tenga 100 o más de suerte o falle (sea false) la cábala del equipo local
  */
-function funcionLoca(local, visitante)
+function ponderar_suerte(local, visitante)
 {
     let ganador = local;
 
