@@ -64,6 +64,10 @@ class SanJustoFC: public Equipo{
 
 class Cancha {
 
+    private:
+    // Acá se anotan los puntos, por nombre de equipo que haya jugado en la cancha
+    map<string, int>    tabla_de_puntos;
+
     public:
 
         /**
@@ -92,24 +96,40 @@ class Cancha {
 
         /**
          * Descripción: Presenta los equipos y da el resultado. Modifica variables, escribe en stdout
+         * Este es el ejercicio [5]
          */
         void jugar(Equipo& local, Equipo& visitante)
         {
-            // Presento equipos
+            // Presento equipos y garantizo que estén en tabla
             cout << "El equipo local " << local.nombre() <<
                     " se enfrenta a " << visitante.nombre() << ". Mucha suerte a todos !!!" << endl;
 
+            auto& puntos_local      = tabla_de_puntos[ local.nombre() ];
+            auto& puntos_visitante  = tabla_de_puntos[ visitante.nombre() ];
+            
             // Si hay empate, ambos se llevan 1 punto
             if ( esEmpate(local, visitante) ) {
+                puntos_local++;
+                puntos_visitante++;
                 cout << "\t[=] Es empate !" << endl;
             }
             else {
                 // El ganador se lleva 3 puntos
-                auto equipo_ganador = ponderarSuerte(local, visitante);
-                cout << "\t[+] Gana: " << equipo_ganador.nombre() << " !!!" << endl;
+                auto ganador = ponderarSuerte(local, visitante);
+                cout << "\t[+] Gana: " << ganador.nombre() << " !!!" << endl;
+                tabla_de_puntos[ ganador.nombre() ] += 3; 
             }
         }
 
+        /**
+         * Descripción: Imprime la tabla de posiciones formateada en stdout.
+         */
+        void imprimirTabla(){
+            cout << endl << "------ [Tabla de posiciones] ------" << endl;
+            for(auto equipo: tabla_de_puntos)  cout << "[+] " << equipo.first << " = " <<  equipo.second << " puntos " << endl;
+            cout << "------------------------------------" << endl << endl;
+            
+        }
 
 };
 
@@ -131,7 +151,9 @@ int main(int argc, char* argv[]){
 
    Cancha         cancha_fabulosa;
 
-   cancha_fabulosa.jugar(deportivo_moron,  san_justo_fc); // Gana Moron
-   cancha_fabulosa.jugar(carmen_san_diego, sacachispas);  // Gana Sacachispas, San Diego está flojo de cábala :c
+   cancha_fabulosa.jugar(deportivo_moron,  san_justo_fc); // Gana Moron, +3
+   cancha_fabulosa.jugar(carmen_san_diego, sacachispas);  // Gana Sacachispas +3, San Diego está flojo de cábala :c
    cancha_fabulosa.jugar(sacachispas,      san_justo_fc); // Es empate
+
+   cancha_fabulosa.imprimirTabla();
 }

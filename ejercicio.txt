@@ -49,8 +49,16 @@ Ver codigo_completo.cpp, Cancha::esEmpate()
 * Sacachispas         San Justo FC
 * */
 
+Ver ejercicio.cpp, tanto Cancha::jugar() como main()
+
 /**
 * [5] agregá una funcion que dados dos equipos haga que jueguen, esto es:
 * _ que sume los puntos por cada partido, teniendo en cuenta que si es empate ambos suman un punto, de lo contrario solo el ganador sumará 3 puntos
 * _ que se encargue de actualizar la cantidad de derrotas/victorias/empates de cada equipo
 */
+
+Ver clase Cancha, tanto jugar(), como imprimirTabla(), como main() (sólo anexé el map que lleva los puntos y agregué imprimirTabla())
+
+-------------
+
+Ver el historial de commits, traté de hacer un commit por cada ejercicio (así se van observando los cambios en el código)
